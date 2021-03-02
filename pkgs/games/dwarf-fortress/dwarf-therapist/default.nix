@@ -1,15 +1,15 @@
 { lib, stdenv, fetchFromGitHub, qtbase
-, qtdeclarative, cmake, texlive, ninja }:
+, qtdeclarative, cmake, texlive, ninja, mkDerivation }:
 
-stdenv.mkDerivation rec {
+mkDerivation rec {
   pname = "dwarf-therapist";
-  version = "41.1.5";
+  version = "41.2.1";
 
   src = fetchFromGitHub {
     owner = "Dwarf-Therapist";
     repo = "Dwarf-Therapist";
     rev = "v${version}";
-    sha256 = "0w1mwwf49vdmvmdfvlkn4m0hzvlj111rpl8hv4rw6v8nv6yfb2y4";
+    sha256 = "0wkczdmmgfd6580ca6j8kirhp1dn91l74hxacm8z2my63vl1gh4g";
   };
 
   nativeBuildInputs = [ texlive cmake ninja ];
@@ -19,8 +19,6 @@ stdenv.mkDerivation rec {
     mkdir -p $out/Applications
     cp -r DwarfTherapist.app $out/Applications
   '' else null;
-
-  dontWrapQtApps = true;
 
   meta = with lib; {
     description = "Tool to manage dwarves in a running game of Dwarf Fortress";

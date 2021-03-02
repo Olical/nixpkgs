@@ -2,11 +2,11 @@
 
 let
   name = "legends-browser-${version}";
-  version = "1.17.1";
+  version = "1.19.2";
 
   jar = fetchurl {
     url = "https://github.com/robertjanetzko/LegendsBrowser/releases/download/${version}/legendsbrowser-${version}.jar";
-    sha256 = "05b4ksbl4481rh3ykfirbp6wvxhppcd5mvclhn9995gsrcaj8gx9";
+    sha256 = "1pxp79ik9vyn0scd3znkg97gm4b2ljxd06jhvl57sihsghignjwf";
   };
 
   script = writeShellScriptBin "legends-browser" ''

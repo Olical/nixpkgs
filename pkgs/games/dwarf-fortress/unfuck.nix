@@ -1,6 +1,6 @@
 { stdenv, lib, fetchFromGitHub, cmake
 , libGL, libSM, SDL, SDL_image, SDL_ttf, glew, openalSoft
-, ncurses, glib, gtk2, libsndfile, zlib
+, ncurses, glib, gtk3, libsndfile, zlib
 , dfVersion, pkg-config
 }:
 
@@ -44,6 +44,10 @@ let
       unfuckRelease = "0.47.04";
       sha256 = "1wa990xbsyiiz7abq153xmafvvk1dmgz33rp907d005kzl1z86i9";
     };
+    "0.47.05" = {
+      unfuckRelease = "0.47.05";
+      sha256 = "1rjcgqaiskf6ylxxy6f6jpdjws3zcrpimf310f8h92996ch700ri";
+    };
   };
 
   release = if hasAttr dfVersion unfuck-releases
@@ -62,14 +66,14 @@ stdenv.mkDerivation {
   };
 
   cmakeFlags = [
-    "-DGTK2_GLIBCONFIG_INCLUDE_DIR=${glib.out}/lib/glib-2.0/include"
-    "-DGTK2_GDKCONFIG_INCLUDE_DIR=${gtk2.out}/lib/gtk-2.0/include"
+    "-DGTK3_GLIBCONFIG_INCLUDE_DIR=${glib.out}/lib/glib-2.0/include"
+    "-DGTK3_GDKCONFIG_INCLUDE_DIR=${gtk3.out}/lib/gtk-3.0/include"
   ];
 
   nativeBuildInputs = [ cmake pkg-config ];
   buildInputs = [
     libSM SDL SDL_image SDL_ttf glew openalSoft
-    ncurses gtk2 libsndfile zlib libGL
+    ncurses gtk3 libsndfile zlib libGL
   ];
 
   # Don't strip unused symbols; dfhack hooks into some of them.

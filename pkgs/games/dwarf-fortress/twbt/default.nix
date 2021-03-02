@@ -47,6 +47,12 @@ let
       sha256 = "092dgp8fh1j4nqr9wbzn89ib1nhscclr8m91lfxsvg0mgn7j8xlv";
       prerelease = true;
     };
+    "0.47.05" = {
+      twbtRelease = "6.xx";
+      dfhackRelease = "0.47.05-beta1";
+      sha256 = "1m0kwy9xyxa7n9hlgvznaa95axndcl1si8lczrlqpgh72flb98b3";
+      prerelease = true;
+    };
   };
 
   release = if hasAttr dfVersion twbt-releases
